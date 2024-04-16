@@ -53,7 +53,7 @@ const DetailsPage = ({ id, mediaType }: DetailsPageProps) => {
               uri: `https://image.tmdb.org/t/p/w400${movieQuery.data?.poster_path}`,
             }}
             style={{ width: 200, height: 300, margin: 10 }}
-            sharedTransitionTag={`${mediaType === 'movie' ? 'movie' : 'tv'}-${id}`}
+            // sharedTransitionTag={`${mediaType === 'movie' ? '(movie)' : '(tv)'}/${id}`}
           />
         </ImageBackground>
 

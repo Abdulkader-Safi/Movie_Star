@@ -21,7 +21,7 @@ const Page = () => {
                 size="$3"
                 icon={() => (
                   <Animated.Image
-                    sharedTransitionTag={`${fav.mediaType === 'movie' ? 'movie' : 'tv'}-${fav.id}`}
+                    // sharedTransitionTag={`${fav.mediaType === 'movie' ? '(movie)' : '(tv)'}/${fav.id}`}
                     source={{ uri: `https://image.tmdb.org/t/p/w500${fav.thumb}` }}
                     style={{ width: 50, height: 50 }}
                   />
