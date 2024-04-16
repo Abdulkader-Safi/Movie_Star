@@ -1,19 +1,13 @@
-import { Link, useLocalSearchParams } from 'expo-router';
-import React from 'react';
-import { Text, View } from 'react-native';
+import { useLocalSearchParams } from 'expo-router';
+
+import DetailsPage from '~/components/DetailsPage';
+import { MediaType } from '~/interfaces/apiresults';
 
 const Page = () => {
   const { id } = useLocalSearchParams<{ id: string }>();
   console.log('🚀 ~ Page ~ id:', id);
 
-  return (
-    <View>
-      <Text>Page</Text>
-      <Link href="/(drawer)/(home)" asChild>
-        <Text>Movie Card</Text>
-      </Link>
-    </View>
-  );
+  return <DetailsPage id={id} mediaType={MediaType.Movie} />;
 };
 
 export default Page;
