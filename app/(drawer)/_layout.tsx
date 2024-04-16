@@ -16,7 +16,7 @@ const Layout = () => {
         name="(home)"
         options={{
           title: 'Movie Star',
-          headerShown: true,
+          headerShown: false,
           drawerIcon: ({ color, size }) => {
             return <Ionicons name="home" size={size} color={color} />;
           },
@@ -27,7 +27,7 @@ const Layout = () => {
         name="(favorite)"
         options={{
           title: 'My Favorites',
-          headerShown: true,
+          headerShown: false,
           drawerIcon: ({ color, size }) => {
             return <Ionicons name="star-outline" size={size} color={color} />;
           },
