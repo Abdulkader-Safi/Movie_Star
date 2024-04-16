@@ -16,17 +16,18 @@ const Layout = () => {
         name="(home)"
         options={{
           title: 'Movie Star',
-          headerShown: false,
+          headerShown: true,
           drawerIcon: ({ color, size }) => {
             return <Ionicons name="home" size={size} color={color} />;
           },
         }}
       />
+
       <Drawer.Screen
         name="(favorite)"
         options={{
           title: 'My Favorites',
-          headerShown: false,
+          headerShown: true,
           drawerIcon: ({ color, size }) => {
             return <Ionicons name="star-outline" size={size} color={color} />;
           },
