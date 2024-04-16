@@ -11,8 +11,7 @@ type IProp = {
 // TODO: add TV type
 const MovieCard = ({ movie }: IProp) => (
   <Link
-    // href={`/(drawer)/(home)/${movie.media_type === 'movie' ? '(movie)' : 'tv'}/${movie.id}`}
-    href={`/(drawer)/(home)/${movie.media_type === 'movie' ? '(movie)' : '(movie)'}/${movie.id}`}
+    href={`/(drawer)/(home)/${movie.media_type === 'movie' ? '(movie)' : '(tv)'}/${movie.id}`}
     asChild>
     <Card
       overflow="hidden"
