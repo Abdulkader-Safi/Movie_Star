@@ -21,7 +21,7 @@ const Layout = () => {
         }}
       />
       <Stack.Screen
-        name="movie/[id]"
+        name="(movie)/[id]"
         options={{
           title: 'Movie Star',
           headerLeft: () => <DrawerToggleButton tintColor="#fff" />,

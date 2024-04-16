@@ -17,6 +17,7 @@
     "@tamagui/react-native-media-driver": "1.74.8",
     "@tamagui/shorthands": "1.74.8",
     "@tamagui/themes": "1.74.8",
+    "@tanstack/react-query": "^5.29.2",
     "expo": "~50.0.7",
     "expo-constants": "~15.4.5",
     "expo-font": "~11.10.2",
@@ -36,15 +37,16 @@
     "tamagui": "1.74.8"
   },
   "devDependencies": {
-    "ajv": "^8.12.0",
     "@babel/core": "^7.20.0",
+    "@tamagui/babel-plugin": "1.74.8",
+    "@tanstack/eslint-plugin-query": "^5.28.11",
     "@types/react": "~18.2.14",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.2",
+    "ajv": "^8.12.0",
     "eslint": "^8.50.0",
     "eslint-config-universe": "^12.0.0",
     "prettier": "^3.2.5",
-    "@tamagui/babel-plugin": "1.74.8",
     "typescript": "^5.3.3"
   },
   "eslintConfig": {

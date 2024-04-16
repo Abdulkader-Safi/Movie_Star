@@ -1,13 +1,15 @@
 import { DrawerToggleButton } from '@react-navigation/drawer';
-import { colorTokens } from '@tamagui/themes';
 import { Stack } from 'expo-router';
+import { useTheme } from 'tamagui';
 
 const Layout = () => {
+  const theme = useTheme();
+
   return (
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: colorTokens.dark.blue.blue7,
+          backgroundColor: theme.blue7.get(),
         },
         headerTintColor: '#fff',
       }}>
