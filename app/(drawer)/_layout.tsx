@@ -6,8 +6,7 @@ const Layout = () => {
   return (
     <Drawer
       screenOptions={{
-        headerShown: true,
-        drawerHideStatusBarOnOpen: true,
+        headerShown: false,
         drawerActiveBackgroundColor: colorTokens.dark.blue.blue7,
         drawerActiveTintColor: '#fff',
         drawerLabelStyle: { marginLeft: -20 },
