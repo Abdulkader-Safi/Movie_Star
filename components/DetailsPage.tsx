@@ -2,23 +2,47 @@ import { Ionicons } from '@expo/vector-icons';
 import { useQuery } from '@tanstack/react-query';
 import { Stack } from 'expo-router';
 import { ImageBackground } from 'react-native';
+import { useMMKVBoolean, useMMKVObject } from 'react-native-mmkv';
 import Animated from 'react-native-reanimated';
 import { Button, H1, Main, Paragraph, ScrollView, Text, useTheme, YStack } from 'tamagui';
 
 import { MediaType } from '~/interfaces/apiresults';
 import { getMovieDetails } from '~/services/api';
+import { Favorite } from '~/utils/favorites';
 
 type DetailsPageProps = {
   id: string;
   mediaType: MediaType;
 };
 const DetailsPage = ({ id, mediaType }: DetailsPageProps) => {
+  const [isFavorite, setIsFavorite] = useMMKVBoolean(`${mediaType}-${id}`);
+  const [favorites, setFavorites] = useMMKVObject<Favorite[]>('favorites');
   const theme = useTheme();
 
   const movieQuery = useQuery({
     queryKey: ['movie', id],
     queryFn: () => getMovieDetails(+id, mediaType),
   });
+
+  const toggleFavorite = () => {
+    const current = favorites || [];
+
+    if (!isFavorite) {
+      setFavorites([
+        ...current,
+        {
+          id,
+          mediaType,
+          thumb: movieQuery.data?.poster_path,
+          name: movieQuery.data?.title || movieQuery.data?.name,
+        },
+      ]);
+    } else {
+      setFavorites(current.filter((fav) => fav.id !== id || fav.mediaType !== mediaType));
+    }
+
+    setIsFavorite(!isFavorite);
+  };
 
   return (
     <Main>
@@ -27,14 +51,13 @@ const DetailsPage = ({ id, mediaType }: DetailsPageProps) => {
           headerRight: () => (
             <Button
               unstyled
-              // onPress={toggleFavorite}
+              onPress={toggleFavorite}
               scale={0.95}
               hoverStyle={{ scale: 0.925 }}
               pressStyle={{ scale: 0.975 }}
               animation="bouncy">
               <Ionicons
-                // name={isFavorite ? 'heart' : 'heart-outline'}
-                name="heart"
+                name={isFavorite ? 'heart' : 'heart-outline'}
                 size={26}
                 color={theme.blue9.get()}
               />
@@ -53,7 +76,7 @@ const DetailsPage = ({ id, mediaType }: DetailsPageProps) => {
               uri: `https://image.tmdb.org/t/p/w400${movieQuery.data?.poster_path}`,
             }}
             style={{ width: 200, height: 300, margin: 10 }}
-            // sharedTransitionTag={`${mediaType === 'movie' ? '(movie)' : '(tv)'}/${id}`}
+            sharedTransitionTag={`${mediaType === 'movie' ? 'movie' : 'tv'}-${id}`}
           />
         </ImageBackground>
 

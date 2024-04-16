@@ -1,5 +1,5 @@
 import { Link } from 'expo-router';
-import { useState } from 'react';
+import { useMMKVObject } from 'react-native-mmkv';
 import Animated from 'react-native-reanimated';
 import { ListItem, ScrollView } from 'tamagui';
 
@@ -7,7 +7,7 @@ import { Container, Main } from '~/tamagui.config';
 import { Favorite } from '~/utils/favorites';
 
 const Page = () => {
-  const [favorites, setFavorites] = useState<Favorite[]>();
+  const [favorites] = useMMKVObject<Favorite[]>('favorites');
 
   return (
     <Main>
