@@ -69,7 +69,11 @@ const Page = () => {
         <Spinner size="large" color="$blue10" />
       )}
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        py={15}
+        contentContainerStyle={{ gap: 14, paddingHorizontal: 14 }}>
         {trendingQuery.data?.results && (
           <>
             {trendingQuery.data?.results.map((item: ResultItem) => (

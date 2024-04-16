@@ -15,6 +15,7 @@ const MovieCard = ({ movie }: IProp) => (
     href={`/(drawer)/(home)/${movie.media_type === 'movie' ? '(movie)' : '(movie)'}/${movie.id}`}
     asChild>
     <Card
+      overflow="hidden"
       elevate
       width={150}
       height={260}
